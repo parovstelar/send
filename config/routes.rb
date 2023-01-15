@@ -11,11 +11,11 @@ Rails.application.routes.draw do
   devise_for :users, skip: [:passwords], controllers: {
     sessions: "users/sessions"
   }
-  
-  
+
+
   namespace :company do
     resources :companies, only: [:index, :new, :show, :edit, :create, :update]
-    get 'homes/top'
   end
 
+  root to: 'homes#top'
 end
