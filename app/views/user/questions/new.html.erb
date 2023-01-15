@@ -1,0 +1,13 @@
+<!--人材側質問投稿-->
+<h1>質問フォーム</h1>
+
+<%= @company.name %>
+
+<%= form_with model: @question, url: '/', method: :post do |f| %>
+
+<h4>質問内容</h4>
+  <%= f.text_area :question_content %>
+  
+  <%= f.submit '送信' %>
+  
+<% end %>

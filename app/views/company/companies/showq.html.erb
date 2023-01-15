@@ -1,0 +1,15 @@
+<!--企業側質問詳細-->
+<h1>回答フォーム</h1>
+
+<h4>質問内容</h4>
+  <%= @question.title %>
+  <%= @question.question_content %>
+
+<%= form_with model: @question, url: '/', method: :post do |f| %>
+
+<h4>回答内容</h4>
+  <%= f.text_area :answer_content %>
+
+  <%= f.submit 'Q＆Aに追加する' %>
+
+<% end %>
