@@ -1,0 +1,9 @@
+<!--企業側回答投稿フォーム-->
+<%= form_with model: @question, url: edit_company_answer_path(@question.id), method: :patch do |f| %>
+
+<h4>回答内容</h4>
+  <%= f.text_area :answer_content %>
+
+  <%= f.submit 'Q＆Aに追加する' %>
+
+<% end %>

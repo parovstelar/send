@@ -1,0 +1,17 @@
+<!--人材側企業一覧-->
+<h1>企業一覧</h1>
+
+<% @company.each do |company| %>
+
+  <%= link_to question_path do %>
+    <!--見出し-->
+    <%= company.head %>
+  <% end %>
+  <!--企業名-->
+  <%= company.name %>
+  <!--住所-->
+  <%= company.address %>
+  <!--月給-->
+  <%= company.wage %>
+
+<% end %>
