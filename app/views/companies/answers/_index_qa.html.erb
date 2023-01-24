@@ -2,7 +2,7 @@
 <h1>企業に関するQ＆A</h1>
 
 <% @question.each do |question| %>
-  <%= link_to _path do %>
+  <%= link_to companies_answer_path(question.id) do %>
     <%= question.title %>
   <% end %>
 <% end %>

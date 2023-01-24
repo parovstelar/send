@@ -1,6 +1,6 @@
 <h2>Sign up</h2>
 <%= form_with model: @user, url: user_registration_path do |f| %>
-  <%= render "company/shared/error_messages", resource: resource %>
+  <%= render "companies/shared/error_messages", resource: resource %>
 
   <div class="field">
     <%= f.label :email %><br />
@@ -24,7 +24,4 @@
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
-<div>
-  <%= link_to "ログインはこちら", new_company_session_path %>
-</div>
-<%= render "company/shared/links" %>
+<%= render "companies/shared/links" %>

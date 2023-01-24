@@ -3,7 +3,7 @@
 
 <%= @company.name %>
 
-<%= form_with model: @question, url: questions_path, method: :post do |f| %>
+<%= form_with model: @question, url: create_questions_path(@company), method: :post do |f| %>
 
 <h4>質問タイトル</h4>
   <%= f.text_field :title %>

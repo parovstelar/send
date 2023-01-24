@@ -5,13 +5,9 @@ class Companies::CompaniesController < ApplicationController
   end
 
   def create
-    @company = Company.new(company_params)
-    @company.save
-    redirect_to new_company_path(@company.id)
-  end
-
-  def index_q
-    @question = Question.where(answer: nil)
+    @company = current_company
+    @company.update(company_params)
+    redirect_to company_path(@company.id)
   end
 
   def show_q

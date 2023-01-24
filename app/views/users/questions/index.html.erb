@@ -3,7 +3,7 @@
 
 <% @company.each do |company| %>
 
-  <%= link_to question_path do %>
+  <%= link_to question_path(company.id) do %>
     <!--見出し-->
     <%= company.head %>
   <% end %>

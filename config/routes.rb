@@ -12,17 +12,16 @@ Rails.application.routes.draw do
     sessions: "users/sessions"
   }
 
+  scope "companies",module: :companies do
+    resources :companies, only: [:new, :create, :show, :edit, :update]
+  end
 
   namespace :companies do
-    get '/answers/questions/' => 'answers#index_q'
+    get '/answers/questions/' => 'answers#question_index'
     get '/answers/questions/:id' => 'answers#show_q', as: 'answer_question'
     get '/answers/' => 'answers#index_qa'
     get '/answers/:id' => 'answers#show_qa', as: 'answer'
     resources :answers, only: [:edit, :update]
-  end
-
-  scope module: :companies do
-    resources :companies, only: [:new, :create, :show, :edit, :update]
   end
 
   namespace :users do
@@ -30,8 +29,10 @@ Rails.application.routes.draw do
     get '/answers/:id' => 'answers#show_qa', as: 'answer'
   end
 
-  scope module: :users do
-    resources :questions, only: [:new, :create, :index, :show]
+  scope "users",module: :users do
+    resources :questions, only: [:index, :show]
+    get '/questions/new/:company_id' => 'questions#new', as: 'new_question'
+    post '/questions/:company_id' => 'questions#create', as: 'create_questions'
   end
 
   root to: 'homes#top'

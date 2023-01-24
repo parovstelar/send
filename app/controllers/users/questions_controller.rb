@@ -1,14 +1,15 @@
 class Users::QuestionsController < ApplicationController
 
   def new
-    @company = Company.find(params[:id])
+    @company = Company.find(params[:company_id])
     @question = Question.new
   end
 
   def create
-    @question = Question.new(question_params)
-    @question.save
-    redirect_to new_question_path(@question.id)
+    @company = Company.find(params[:company_id])
+    question = Question.new(question_params)
+    question.save
+    redirect_to question_path(@company)
   end
 
   def index

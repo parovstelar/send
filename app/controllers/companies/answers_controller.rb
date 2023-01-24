@@ -10,6 +10,10 @@ class Companies::AnswersController < ApplicationController
     redirect_to edit_company_answer_path(@question.id)
   end
 
+  def question_index
+    @question = Question.where(answer: nil)
+  end
+
   def index_qa
     @question = Question.where.not(answer: nil)
   end
