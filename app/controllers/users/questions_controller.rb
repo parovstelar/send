@@ -7,17 +7,13 @@ class Users::QuestionsController < ApplicationController
 
   def create
     @company = Company.find(params[:company_id])
-    question = Question.new(question_params)
-    question.save
-    redirect_to question_path(@company)
-  end
-
-  def index
-    @company = Company.all
-  end
-
-  def show
-    @company = Company.find(params[:id])
+    @question = Question.new(question_params)
+    @question.company_id = @company.id
+    if @question.save
+      redirect_to new_company_question_path(@company)
+    else
+      render :new
+    end
   end
 
 private

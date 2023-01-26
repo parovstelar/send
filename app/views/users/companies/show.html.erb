@@ -31,6 +31,8 @@
 <h4>福利厚生</h4>
 <%= @company.welfare %>
 
-<%= link_to "質問する", new_question_path(@company) %>
+<!--<%#= render 'users/answers/index', questions: @questions %>-->
 
-<%= link_to "戻る", questions_path %>
+<%= link_to "質問する", new_company_question_path(@company) %>
+
+<%= link_to "戻る", companies_path %>

@@ -1,7 +1,9 @@
 <!--企業側企業編集-->
-<h1>企業情報編集</h1>
+<h1>企業情報</h1>
 
-<%= form_with model: @company, url: company_path, method: :patch do |f| %>
+<%= render 'errors', company: @company %>
+
+<%= form_with model: @company, url: companies_company_path, method: :patch do |f| %>
 
 <h4>見出し</h4>
   <%= f.text_field :head %>
@@ -33,6 +35,6 @@
 <h4>福利厚生</h4>
   <%= f.text_field :welfare %>
 
-  <%= f.submit '更新' %>
+  <%= f.submit '送信' %>
 
 <% end %>

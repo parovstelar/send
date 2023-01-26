@@ -17,15 +17,24 @@
         </li>
       <% elsif company_signed_in? %>
         <li>
-          <%= link_to "質問一覧", companies_answers_questions_path %>
-          <!--< if current_company.questions.where(answer_content:nil).present? %>-->
-          <!--⭐︎-->
-          <!--< end %>-->
+          <%= link_to "質問一覧", companies_questions_path %>
+          <% if current_company.questions.where(answer_content:nil).present? %>
+          ⭐︎
+          <% end %>
+        </li>
+        <li>
+          <%= link_to "企業詳細", companies_company_path(current_company) %>
+        </li>
+        <li>
+          <%= link_to "企業編集", edit_companies_company_path(current_company) %>
         </li>
         <li>
           <%= link_to "ログアウト", destroy_company_session_path, method: :delete %>
         </li>
       <% else %>
+        <li>
+          <%= link_to "TOP", root_path %>
+        </li>
         <li>
           <%= link_to "企業ログイン", new_company_session_path %>
         </li>

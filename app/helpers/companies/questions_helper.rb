@@ -1,0 +1,2 @@
+module Companies::QuestionsHelper
+end

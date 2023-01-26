@@ -1,4 +1,6 @@
 class Question < ApplicationRecord
   belongs_to :company
-  belongs_to :user
+
+  validates :title, presence: true
+  validates :question_content, presence: true
 end

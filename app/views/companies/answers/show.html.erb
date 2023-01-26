@@ -1,4 +1,4 @@
-<!--人材側Q＆A詳細-->
+<!--企業側Q＆A詳細-->
 <h1>Q＆A詳細</h1>
 
 <h4>質問内容</h4>
@@ -8,4 +8,4 @@
 <h4>回答内容</h4>
   <%= @question.answer_content %>
 
-<%= link_to "戻る", user_answers_path %>
+<%= link_to "戻る", companies_company_path(current_company) %>

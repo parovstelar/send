@@ -1,8 +1,8 @@
 <!--人材側Q＆A一覧-->
 <h1>企業に関するQ＆A</h1>
 
-<% @question.each do |question| %>
-  <%= link_to user_answer_path do %>
+<% questions.each do |question| %>
+  <%= link_to answer_path(question) do %>
     <%= question.title %>
   <% end %>
 <% end %>

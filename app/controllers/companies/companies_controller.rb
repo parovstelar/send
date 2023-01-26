@@ -1,21 +1,9 @@
 class Companies::CompaniesController < ApplicationController
-
-  def new
-    @company = Company.new
-  end
-
-  def create
-    @company = current_company
-    @company.update(company_params)
-    redirect_to company_path(@company.id)
-  end
-
-  def show_q
-    @question = Question.find(params[:id])
-  end
+before_action :authenticate_company!, except: [:top]
 
   def show
     @company = Company.find(params[:id])
+    @questions = Question.where.not(answer_content: nil)
   end
 
   def edit
@@ -23,15 +11,25 @@ class Companies::CompaniesController < ApplicationController
   end
 
   def update
-    @company = Company.find(params[:id])
-    @company.update(company_params)
-    redirect_to edit_company_path(@company.id)
+    @company = current_company
+    if @company.update(company_params)
+      redirect_to companies_company_path(@company)
+    else
+      render :edit
+    end
   end
 
 private
 
   def company_params
     params.require(:company).permit(:head, :name, :link, :address, :content, :schedule, :wage, :vacation, :employment, :welfare)
+  end
+
+  def is_matching_login_company
+    company_id = params[:id].to_i
+    unless company_id == current_company.id
+      redirect_to companies_company_path(current_company)
+    end
   end
 
 end

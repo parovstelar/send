@@ -1,8 +1,8 @@
 <!--企業側質問一覧-->
 <h1>質問一覧</h1>
 
-<% @question.each do |question| %>
-  <%= link_to _path do %>
+<% @questions.each do |question| %>
+  <%= link_to companies_question_path(question) do %>
     <%= question.title %>
   <% end %>
 <% end %>
