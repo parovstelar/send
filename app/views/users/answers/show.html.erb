@@ -1,9 +1,11 @@
 <!--人材側Q＆A詳細-->
-<div class="col-5 offset-md-1 mt-5">
+<div class="box col-5 offset-md-1 mt-5">
   <h3>Q＆A詳細</h3>
   <table class="table">
     <tr>
-      <td>質問内容　：</td>
+      <td>
+        <h4>質問内容　：</h4>
+      </td>
       <td><%= @question.title %></td>
     </tr>
     <tr>
@@ -11,7 +13,9 @@
       <td><%= @question.question_content %></td>
     </tr>
     <tr>
-      <td>回答　　　：</td>
+      <td>
+        <h4>回答　　　：</h4>
+      </td>
       <td><%= @question.answer_content %></td>
     </tr>
   </table>

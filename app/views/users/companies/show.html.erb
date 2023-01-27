@@ -1,48 +1,52 @@
 <!--人材側企業詳細-->
-<div class="col-5 offset-md-1 mt-3">
-<h3>企業詳細ページ</h3>
-  <table class="table">
-    <tr>
-      <td>見出し</td><td><%= @company.head %></td>
-    </tr>
-    <tr>
-      <td>企業名</td>
-      <td>
-        <%= link_to '@company.link' do %>
-          <%= @company.name %>
-        <% end %>
-      </td>
-    </tr>
-    <tr>
-      <td>住所</td><td><%= @company.address %></td>
-    </tr>
-    <tr>
-      <td>仕事内容</td><td><%= @company.content %></td>
-    </tr>
-    <tr>
-      <td>１日のスケジュール</td><td><%= @company.schedule %></td>
-    </tr>
-    <tr>
-      <td>月給</td><td><%= @company.wage %></td>
-    </tr>
-    <tr>
-      <td>休日</td><td><%= @company.vacation %></td>
-    </tr>
-    <tr>
-      <td>雇用形態</td><td><%= @company.employment %></td>
-    </tr>
-    <tr>
-      <td>福利厚生</td><td><%= @company.welfare %></td>
-    </tr>
-    <tr>
-      <th></th>
-      <td>
-        <span>
-          <%= link_to "この企業に質問する", new_company_question_path(@company), class: "btn btn-secondary" %>
-          <%= link_to "企業一覧へ戻る", companies_path, class: "btn btn-secondary" %>
-        </span>
-      </td>
-    </tr>
-  </table>
+<div class="container me-3 my-5 p-0 ml-auto">
+  <div class="row">
+    <div class="box col-md-8">
+      <h3>企業詳細ページ</h3>
+      <table class="table">
+        <tr>
+          <td>見出し</td><td><%= @company.head %></td>
+        </tr>
+        <tr>
+          <td>企業名</td>
+          <td>
+            <%= link_to '@company.link' do %>
+              <%= @company.name %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>住所</td><td><%= @company.address %></td>
+        </tr>
+        <tr>
+          <td>仕事内容</td><td><%= @company.content %></td>
+        </tr>
+        <tr>
+          <td>１日のスケジュール</td><td><%= @company.schedule %></td>
+        </tr>
+        <tr>
+          <td>月給</td><td><%= @company.wage %></td>
+        </tr>
+        <tr>
+          <td>休日</td><td><%= @company.vacation %></td>
+        </tr>
+        <tr>
+          <td>雇用形態</td><td><%= @company.employment %></td>
+        </tr>
+        <tr>
+          <td>福利厚生</td><td><%= @company.welfare %></td>
+        </tr>
+        <tr>
+          <th></th>
+          <td>
+            <span>
+              <%= link_to "この企業に質問する", new_company_question_path(@company), class: "btn btn-secondary" %>
+              <%= link_to "企業一覧へ戻る", companies_path, class: "btn btn-secondary" %>
+            </span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
 </div>
 <%= render 'users/answers/index', questions: @questions %>
