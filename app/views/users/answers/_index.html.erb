@@ -1,8 +1,25 @@
 <!--人材側Q＆A一覧-->
-<h1>企業に関するQ＆A</h1>
-
-<% questions.each do |question| %>
-  <%= link_to answer_path(question) do %>
-    <%= question.title %>
-  <% end %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>企業に関するQ＆A</th>
+          </tr>
+        </thead>
+        <% questions.each do |question| %>
+          <tbody>
+            <tr>
+              <td>
+                <%= link_to answer_path(question) do %>
+                  <%= question.title %>
+                <% end %>
+              </td>
+            </tr>
+          </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

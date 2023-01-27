@@ -1,40 +1,72 @@
 <!--企業側企業編集-->
-<h1>企業情報</h1>
-
+<div class="col-7 offset-md-1 mt-5 pb-5">
+  <h3>企業情報</h3>
+</div>
 <%= render 'errors', company: @company %>
-
 <%= form_with model: @company, url: companies_company_path, method: :patch do |f| %>
-
-<h4>見出し</h4>
-  <%= f.text_field :head %>
-
-<h4>企業名</h4>
-  <%= f.text_field :name %>
-
-<h4>企業URL</h4>
-  <%= f.text_field :link %>
-
-<h4>住所</h4>
-  <%= f.text_field :address %>
-
-<h4>仕事内容</h4>
-  <%= f.text_area :content %>
-
-<h4>１日のスケジュール</h4>
-  <%= f.text_area :schedule %>
-
-<h4>月給</h4>
-  <%= f.text_field :wage %>
-
-<h4>休日</h4>
-  <%= f.text_field :vacation %>
-
-<h4>雇用形態</h4>
-  <%= f.text_field :employment %>
-
-<h4>福利厚生</h4>
-  <%= f.text_field :welfare %>
-
-  <%= f.submit '送信' %>
-
+  <div class="container mx-auto">
+    <div class="row">
+      <div class="col-3 h5">見出し</div>
+      <div class="form-group col-sm-6">
+        <%= f.text_field :head, class: "form-control" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3 h5">企業名</div>
+      <div class="form-group col-sm-6">
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3 h5">企業URL</div>
+      <div class="form-group col-sm-6">
+        <%= f.text_field :link, class: "form-control" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3 h5">住所</div>
+      <div class="form-group col-sm-6">
+        <%= f.text_field :address, class: "form-control" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3 h5">仕事内容</div>
+      <div class="form-group col-sm-6">
+        <%= f.text_area :content, class: "form-control" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3 h5">１日のスケジュール</div>
+      <div class="form-group col-sm-6">
+        <%= f.text_area :schedule, class: "form-control" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3 h5">月給</div>
+      <div class="form-group col-sm-6">
+        <%= f.text_field :wage, class: "form-control" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3 h5">休日</div>
+      <div class="form-group col-sm-6">
+        <%= f.text_field :vacation, class: "form-control" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3 h5">雇用形態</div>
+      <div class="form-group col-sm-6">
+        <%= f.text_field :employment, class: "form-control" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3 h5">福利厚生</div>
+      <div class="form-group col-sm-6">
+        <%= f.text_field :welfare, class: "form-control" %>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+      <%= f.submit '　　送信　　', class: "btn btn-secondary" %>
+    </div>
+  </div>
 <% end %>

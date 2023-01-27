@@ -1,18 +1,21 @@
 <!--人材側質問投稿-->
-<h1>質問フォーム</h1>
-
-<%= @company.name %>
-
+<div>
+  <%= flash[:notice] %>
+</div>
+<div class="col-7 offset-md-1 mt-5 pb-5">
+  <h3>質問フォーム：<%= @company.name %></h3>
+</div>
 <%= render 'companies/questions/errors', question: @question %>
-
 <%= form_with model: @question, url: company_questions_path(@company), method: :post do |f| %>
-
-<h4>質問タイトル</h4>
-  <%= f.text_field :title %>
-
-<h4>質問内容</h4>
-  <%= f.text_area :question_content %>
-
-  <%= f.submit '送信' %>
-
+  <div class="container mx-auto">
+    <div class="row">
+      <div class="col-3 h4">タイトル</div>
+      <div class="form-group col-sm-6"><%= f.text_field :title, placeholder: "タイトルを記入", class: "form-control" %></div>
+    </div>
+    <div class="row">
+      <div class="col-3 h4">質問内容</div>
+      <div class="form-group col-sm-6"><%= f.text_area :question_content, placeholder: "質問内容を記入", class: "form-control" %></div>
+    </div>
+    <div class="row d-flex justify-content-center"><%= f.submit '　　送信　　', class: "btn btn-secondary" %></div>
+  </div>
 <% end %>

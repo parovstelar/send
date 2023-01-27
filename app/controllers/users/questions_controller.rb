@@ -10,6 +10,7 @@ class Users::QuestionsController < ApplicationController
     @question = Question.new(question_params)
     @question.company_id = @company.id
     if @question.save
+      flash[:notice] = "質問を送信しました。"
       redirect_to new_company_question_path(@company)
     else
       render :new

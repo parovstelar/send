@@ -1,11 +1,20 @@
 <!--人材側Q＆A詳細-->
-<h1>Q＆A詳細</h1>
+<div class="col-5 offset-md-1 mt-5">
+  <h3>Q＆A詳細</h3>
+  <table class="table">
+    <tr>
+      <td>質問内容　：</td>
+      <td><%= @question.title %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><%= @question.question_content %></td>
+    </tr>
+    <tr>
+      <td>回答　　　：</td>
+      <td><%= @question.answer_content %></td>
+    </tr>
+  </table>
+</div>
 
-<h4>質問内容</h4>
-  <%= @question.title %>
-  <%= @question.question_content %>
-
-<h4>回答内容</h4>
-  <%= @question.answer_content %>
-
-<%= link_to "戻る", answers_path %>
+<%#= link_to "戻る", company_path(@company) %>

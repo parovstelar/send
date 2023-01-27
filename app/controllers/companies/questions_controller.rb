@@ -1,4 +1,5 @@
 class Companies::QuestionsController < ApplicationController
+before_action :is_matching_login_company, only: [:show, :update]
 before_action :authenticate_company!, except: [:top]
 
   def index
@@ -12,6 +13,7 @@ before_action :authenticate_company!, except: [:top]
   def update
     @question = Question.find(params[:id])
     if @question.update(answer_params)
+      flash[:notice] = "保存が成功しました"
       redirect_to companies_questions_path(@question.id)
     else
       render :edit
@@ -22,6 +24,13 @@ private
 
   def answer_params
     params.require(:question).permit(:answer_content)
+  end
+
+  def is_matching_login_company
+    company_id = params[:id].to_i
+    unless company_id == current_company.id
+      redirect_to companies_company_path(current_company)
+    end
   end
 
 end

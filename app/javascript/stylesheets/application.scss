@@ -1,2 +1,25 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+.wrapper{
+    // min-height: 100vh;
+    position: relative;/*←相対位置*/
+    padding-bottom: 120px;/*←footerの高さ*/
+    box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+}
+header {
+  background-color: #008080;
+  color: #999933;
+}
+// .border-dark {
+//   padding-bottom: 20px;
+//   margin: 20px;
+// }
+footer {
+  position: absolute;
+  bottom: 0;
+  background-color: #008080;
+  color: #999933;
+}
+body {
+  background-color: #CCCCCC;
+}

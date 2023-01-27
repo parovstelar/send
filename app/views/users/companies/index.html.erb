@@ -1,17 +1,30 @@
 <!--人材側企業一覧-->
-<h1>企業一覧</h1>
-
-<% @companies.each do |company| %>
-
-  <%= link_to company_path(company) do %>
-    <!--見出し-->
-    <%= company.head %>
-  <% end %>
-  <!--企業名-->
-  <%= company.name %>
-  <!--住所-->
-  <%= company.address %>
-  <!--月給-->
-  <%= company.wage %>
-
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <table class="table">
+        <h3>企業一覧</h3>
+        <% @companies.each do |company| %>
+          <tbody style="padding-bottom:50px;" class="border-dark rounded">
+            <tr>
+              <td>
+                <%= link_to company_path(company) do %>
+                  <%= company.head %>
+                <% end %>
+              </td>
+            </tr>
+            <tr>
+              <td><%= company.name %></td>
+            </tr>
+            <tr>
+              <td><%= company.address %></td>
+            </tr>
+            <tr>
+              <td>月給<%= company.wage %>円</td>
+            </tr>
+          </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

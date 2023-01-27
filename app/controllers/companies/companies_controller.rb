@@ -1,4 +1,5 @@
 class Companies::CompaniesController < ApplicationController
+before_action :is_matching_login_company, only: [:edit, :update]
 before_action :authenticate_company!, except: [:top]
 
   def show
@@ -13,6 +14,7 @@ before_action :authenticate_company!, except: [:top]
   def update
     @company = current_company
     if @company.update(company_params)
+      flash[:notice] = "保存が成功しました"
       redirect_to companies_company_path(@company)
     else
       render :edit
