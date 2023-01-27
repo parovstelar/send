@@ -6,9 +6,12 @@
     padding-bottom: 120px;/*←footerの高さ*/
     box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
 }
-header {
-  background-color: #008080;
-  color: #999933;
+header, footer {
+  background-color: #006666;
+  color: #CC9900;
+}
+.tc {
+  color: #CC9900;
 }
 // .border-dark {
 //   padding-bottom: 20px;
@@ -17,8 +20,6 @@ header {
 footer {
   position: absolute;
   bottom: 0;
-  background-color: #008080;
-  color: #999933;
 }
 .box {
   margin: 0 auto;
@@ -39,4 +40,5 @@ footer {
 }
 body {
   background-color: #CCCCCC;
+  color: #555555;
 }

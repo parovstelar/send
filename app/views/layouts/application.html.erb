@@ -17,34 +17,52 @@
           <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
               <li class="nav-item">
-                <%= link_to "企業一覧", companies_path, class: 'nav-link text-light' %>
+                <%= link_to companies_path, class: 'nav-link text-light' do %>
+                  <p class="tc">企業一覧</p>
+                <% end %>
               </li>
               <li class="nav-item">
-                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-light' %>
+                <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-light' do %>
+                  <p class="tc">ログアウト</p>
+                <% end %>
               </li>
             <% elsif company_signed_in? %>
               <li class="nav-item">
-                <%= link_to "質問一覧", companies_questions_path, class: 'nav-link text-light' %>
+                <%= link_to companies_questions_path, class: 'nav-link text-light' do %>
+                  <p class="tc">質問一覧</p>
+                <% end %>
                 <% if current_company.questions.where(answer_content:nil).present? %>◎<% end %>
               </li>
               <li class="nav-item">
-                <%= link_to "企業詳細", companies_company_path(current_company), class: 'nav-link text-light' %>
+                <%= link_to companies_company_path(current_company), class: 'nav-link text-light' do %>
+                  <p class="tc">企業詳細</p>
+                <% end %>
               </li>
               <li class="nav-item">
-                <%= link_to "企業編集", edit_companies_company_path(current_company), class: 'nav-link text-light' %>
+                <%= link_to edit_companies_company_path(current_company), class: 'nav-link text-light' do %>
+                  <p class="tc">企業編集</p>
+                <% end %>
               </li>
               <li class="nav-item">
-                <%= link_to "ログアウト", destroy_company_session_path, method: :delete, class: 'nav-link text-light' %>
+                <%= link_to destroy_company_session_path, method: :delete, class: 'nav-link text-light' do %>
+                  <p class="tc">ログアウト</p>
+                <% end %>
               </li>
             <% else %>
               <li class="nav-item">
-                <%= link_to "TOP", root_path, class: 'nav-link text-light' %>
+                <%= link_to root_path, class: 'nav-link text-light' do %>
+                  <p class="tc">TOP</p>
+                <% end %>
               </li>
               <li class="nav-item">
-                <%= link_to "ABOUT", about_path, class: 'nav-link text-light' %>
+                <%= link_to about_path, class: 'nav-link text' do %>
+                  <p class="tc">ABOUT</p>
+                <% end %>
               </li>
               <li class="nav-item">
-                <%= link_to "企業ログイン", new_company_session_path, class: 'nav-link text-light' %>
+                <%= link_to new_company_session_path, class: 'nav-link text-light' do %>
+                  <p class="tc">企業ログイン</p>
+                <% end %>
               </li>
             <% end %>
           </ul>
@@ -55,7 +73,7 @@
       </main>
       <footer class="footer mt-5 py-3 fixed-bottom border-top">
         <div class="container text-center">
-          <span>©Send</span>
+          <strong>©Send</strong>
         </div>
       </footer>
     </div>
