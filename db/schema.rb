@@ -24,10 +24,10 @@ ActiveRecord::Schema.define(version: 2023_01_13_043942) do
     t.string "address"
     t.string "vacation"
     t.string "employment"
+    t.string "wage"
     t.text "content"
     t.text "schedule"
     t.text "welfare"
-    t.integer "wage"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_companies_on_email", unique: true

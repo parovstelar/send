@@ -1,11 +1,12 @@
 <!--人材側企業一覧-->
 <div class="container me-3 my-5 p-0 ml-auto">
   <div class="row">
-    <div class="box col-md-8">
-      <table class="table">
-        <h3>企業一覧</h3>
-        <% @companies.each do |company| %>
-          <tbody style="padding-bottom:50px;" class="border-dark rounded">
+    <div class="box col-md-6" >
+      <h3>企業一覧</h3>
+      <% @companies.each do |company| %>
+      <div class="box2">
+        <table class="table table-sm table-borderless">
+          <tbody>
             <tr>
               <td>
                 <%= link_to company_path(company) do %>
@@ -23,8 +24,9 @@
               <td>月給<%= company.wage %>円</td>
             </tr>
           </tbody>
-        <% end %>
-      </table>
+        </table>
+      </div>
+    <% end %>
     </div>
   </div>
 </div>

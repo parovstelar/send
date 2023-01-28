@@ -37,10 +37,10 @@ class DeviseCreateCompanies < ActiveRecord::Migration[6.1]
       t.string :address
       t.string :vacation
       t.string :employment
+      t.string :wage
       t.text :content
       t.text :schedule
       t.text :welfare
-      t.integer :wage
 
       t.timestamps null: false
     end

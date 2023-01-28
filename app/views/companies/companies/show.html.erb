@@ -1,7 +1,5 @@
 <!--企業側企業詳細-->
-<div>
-<%= flash[:notice] %>
-</div>
+
 <div class="container me-3 my-5 p-0 ml-auto">
   <div class="row">
     <div class="box col-md-8">
@@ -13,9 +11,7 @@
         <tr>
           <td>企業名</td>
           <td>
-            <%= link_to '@company.link' do %>
-              <%= @company.name %>
-            <% end %>
+            <%= link_to @company.name, @company.link %>
           </td>
         </tr>
         <tr>

@@ -13,7 +13,9 @@
     <div class="wrapper">
       <header class="shadow-sm">
         <nav class="navbar navbar-expand-lg navbar-light">
-          <h1 class="text-left">Send</h1>
+          <h1 class="text-left">
+            <strong>Send</strong>
+          </h1>
           <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
               <li class="nav-item">
@@ -29,9 +31,9 @@
             <% elsif company_signed_in? %>
               <li class="nav-item">
                 <%= link_to companies_questions_path, class: 'nav-link text-light' do %>
-                  <p class="tc">質問一覧</p>
+                  <span class="tc">質問一覧</span>
+                <% if current_company.questions.where(answer_content:nil).present? %>👈<% end %>
                 <% end %>
-                <% if current_company.questions.where(answer_content:nil).present? %>◎<% end %>
               </li>
               <li class="nav-item">
                 <%= link_to companies_company_path(current_company), class: 'nav-link text-light' do %>
@@ -69,6 +71,9 @@
         </nav>
       </header>
       <main>
+        <div>
+<%= flash[:notice] %>
+</div>
         <%= yield %>
       </main>
       <footer class="footer mt-5 py-3 fixed-bottom border-top">

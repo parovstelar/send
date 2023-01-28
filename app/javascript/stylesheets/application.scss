@@ -6,23 +6,26 @@
     padding-bottom: 120px;/*←footerの高さ*/
     box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
 }
-header, footer {
+header {
   background-color: #006666;
-  color: #CC9900;
+  color: #B8860B;
 }
 .tc {
   color: #CC9900;
 }
-// .border-dark {
-//   padding-bottom: 20px;
-//   margin: 20px;
-// }
 footer {
   position: absolute;
   bottom: 0;
+  background-color: #006666;
+  color: #CC9900;
 }
 .box {
   margin: 0 auto;
+}
+.box2 {
+  border: 3px solid gray;
+  border-radius: 10px;
+  margin-bottom: 30px;
 }
 .pl1 {
   padding-left: 120px;
@@ -37,6 +40,9 @@ footer {
 .t3 {
   text-align: center;
   padding: 100px 0;
+}
+.t3 {
+  padding-right: 10px;
 }
 body {
   background-color: #CCCCCC;

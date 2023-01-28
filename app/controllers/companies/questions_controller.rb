@@ -3,7 +3,7 @@ before_action :is_matching_login_company, only: [:show, :update]
 before_action :authenticate_company!, except: [:top]
 
   def index
-    @questions = Question.where(answer_content: nil)
+    @questions = Question.where(company_id: current_company.id).where(answer_content: nil)
   end
 
   def show
@@ -13,7 +13,7 @@ before_action :authenticate_company!, except: [:top]
   def update
     @question = Question.find(params[:id])
     if @question.update(answer_params)
-      flash[:notice] = "保存が成功しました"
+      flash[:notice] = "保存が成功しました。"
       redirect_to companies_questions_path(@question.id)
     else
       render :edit
@@ -27,8 +27,9 @@ private
   end
 
   def is_matching_login_company
-    company_id = params[:id].to_i
-    unless company_id == current_company.id
+    question = Question.find(params[:id].to_i)
+    company = Company.find(question.company_id)
+    unless company.id == current_company.id
       redirect_to companies_company_path(current_company)
     end
   end

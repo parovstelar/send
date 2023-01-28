@@ -4,7 +4,7 @@ before_action :authenticate_company!, except: [:top]
 
   def show
     @company = Company.find(params[:id])
-    @questions = Question.where.not(answer_content: nil)
+    @questions = Question.where(company_id: @company.id).where.not(answer_content: nil)
   end
 
   def edit
@@ -14,7 +14,7 @@ before_action :authenticate_company!, except: [:top]
   def update
     @company = current_company
     if @company.update(company_params)
-      flash[:notice] = "保存が成功しました"
+      flash[:notice] = "保存が成功しました。"
       redirect_to companies_company_path(@company)
     else
       render :edit

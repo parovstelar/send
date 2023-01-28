@@ -7,7 +7,7 @@ before_action :authenticate_user!, except: [:top]
 
   def show
     @company = Company.find(params[:id])
-    @questions = Question.where.not(answer_content: nil)
+    @questions = Question.where(company_id: @company.id).where.not(answer_content: nil)
   end
 
 end
