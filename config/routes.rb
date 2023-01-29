@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   namespace :companies do
     resources :companies, only: [:show, :edit, :update]
+    resources :company_infos, only: [:show]
     resources :questions, only: [:index, :show, :update]
     resources :answers, only: [:index, :show]
   end
